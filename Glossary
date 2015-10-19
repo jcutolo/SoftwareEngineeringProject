@@ -1,5 +1,5 @@
 Glossary
-
+=============
 Acme Accounting Services - third party organization that is responsible for financial procedures such as recording payments of membership fees and suspending members who's fees are overdue
 Accounts Payable - a department of the ChocAn data center that handles payment to the providers
 Card reader - used by the provider to read the member's identification cards in order to determine if a member is active, inactive, or suspended
@@ -21,4 +21,5 @@ service code - the six digit number that corresponds to a specific service that 
 special report - a report that has been requested by a ChocAn manager that details the services that have been provided during that week; can be requested at anytime during the week
 summary report - a report that is provided to the manager of accounts payable that details every provider to be paid by ChocAn and the number of consultations each provider has made with the total fee for each provider for a given week
 validation - the process of determining a member's status which could return an invalid number, member suspended, or validated to the provider terminal
+
 
