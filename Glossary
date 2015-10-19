@@ -11,3 +11,8 @@ member identification card - a card given to a member that has all of the inform
 member number - a specific 9 digit number to identify a member
 member report - a weekly report sent to the member in an email with a list of services that have been provided to the specific member 
 member status - a status to identify a member as either active, inactive, or suspended
+provider - a person who provides a service to a customer, namely a dietician, internist, or an exercise expert
+provider directory - a directory of six digit codes organized alphabetically that correspond to a specific service and fee that could be provided; can be requested at anytime during the week and is delivered via email
+provider form - a simulated form on a provider terminal that allows the provider to key in all of the information in regards to a service that has been provided to a member
+provider number - a specific 9 digit number to identify a provider
+provider report - a summary report given to a provider which includes the number of consultations and the total fee that the provider has accumulated for the week to be paid by ChocAn; sent via email
