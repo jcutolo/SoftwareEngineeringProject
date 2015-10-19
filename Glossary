@@ -16,3 +16,9 @@ provider directory - a directory of six digit codes organized alphabetically tha
 provider form - a simulated form on a provider terminal that allows the provider to key in all of the information in regards to a service that has been provided to a member
 provider number - a specific 9 digit number to identify a provider
 provider report - a summary report given to a provider which includes the number of consultations and the total fee that the provider has accumulated for the week to be paid by ChocAn; sent via email
+provider terminal - the specific terminal that is associated with each different provider to ChocAn members; it is used to communicate with the ChocAn data center
+service code - the six digit number that corresponds to a specific service that was provided by a provider to a ChocAn member
+special report - a report that has been requested by a ChocAn manager that details the services that have been provided during that week; can be requested at anytime during the week
+summary report - a report that is provided to the manager of accounts payable that details every provider to be paid by ChocAn and the number of consultations each provider has made with the total fee for each provider for a given week
+validation - the process of determining a member's status which could return an invalid number, member suspended, or validated to the provider terminal
+
