@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_TCu0IHaXEeW6B-ywCw7wPg" name="RootElement">
-  <packagedElement xmi:type="uml:Class" xmi:id="_UwIKEHaXEeW6B-ywCw7wPg" name="Class1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UwIKEHaXEeW6B-ywCw7wPg" name="Provider"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_D5-P0HaYEeW6B-ywCw7wPg" name="Manager"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_GzI1UHaYEeW6B-ywCw7wPg" name="PTerminal"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MldZQHaYEeW6B-ywCw7wPg" name="MTerminal"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_Vh6W4HaYEeW6B-ywCw7wPg" name="Member"/>
 </uml:Model>
