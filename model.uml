@@ -5,7 +5,16 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_GzI1UHaYEeW6B-ywCw7wPg" name="PTerminal"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_MldZQHaYEeW6B-ywCw7wPg" name="MTerminal"/>
   <packagedElement xmi:type="uml:DataType" xmi:id="_Vh6W4HaYEeW6B-ywCw7wPg" name="Member"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_zT7_wHaZEeW6B-ywCw7wPg" name="Server"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zT7_wHaZEeW6B-ywCw7wPg" name="Datacenter"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_3zsvoHaZEeW6B-ywCw7wPg" name="Operator"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_CDY2wHaaEeW6B-ywCw7wPg" name="AManager"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_oF2PUHacEeWjtJAVXVQBVg" name="Computer"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_5rJ5IHacEeWjtJAVXVQBVg" name="Computer"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_CXmr4HadEeWjtJAVXVQBVg" name="MemberCard"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_WCce0HadEeWjtJAVXVQBVg" name="Server"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_0YJR8HadEeWjtJAVXVQBVg" name="Human"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_00JRcHadEeWjtJAVXVQBVg" name="Human"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_3LCQUHadEeWjtJAVXVQBVg" name="Human"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_9SYCAHadEeWjtJAVXVQBVg" name="Human"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_-R-d0HadEeWjtJAVXVQBVg" name="Human"/>
 </uml:Model>
