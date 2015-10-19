@@ -1,0 +1,24 @@
+Glossary
+
+Acme Accounting Services - third party organization that is responsible for financial procedures such as recording payments of membership fees and suspending members who's fees are overdue
+Accounts Payable - a department of the ChocAn data center that handles payment to the providers
+Card reader - used by the provider to read the member's identification cards in order to determine if a member is active, inactive, or suspended
+ChocAn Data Center - a central location to obtain information about the ChocAn members, providers, and anything else related to ChocAn
+Chocoholics Anonymous - also known as ChocAn, an organization who helps people who are addicted to chocolate
+Electronic Funds Transfer - also known as EFT, an automated process used to transfer funds between ChocAn and a provider
+member - a person who obtains a service from a provider and pays a fee to ChocAn
+member identification card - a card given to a member that has all of the information associated with that specific member that is used by the provider at the time of service
+member number - a specific 9 digit number to identify a member
+member report - a weekly report sent to the member in an email with a list of services that have been provided to the specific member 
+member status - a status to identify a member as either active, inactive, or suspended
+provider - a person who provides a service to a customer, namely a dietician, internist, or an exercise expert
+provider directory - a directory of six digit codes organized alphabetically that correspond to a specific service and fee that could be provided; can be requested at anytime during the week and is delivered via email
+provider form - a simulated form on a provider terminal that allows the provider to key in all of the information in regards to a service that has been provided to a member
+provider number - a specific 9 digit number to identify a provider
+provider report - a summary report given to a provider which includes the number of consultations and the total fee that the provider has accumulated for the week to be paid by ChocAn; sent via email
+provider terminal - the specific terminal that is associated with each different provider to ChocAn members; it is used to communicate with the ChocAn data center
+service code - the six digit number that corresponds to a specific service that was provided by a provider to a ChocAn member
+special report - a report that has been requested by a ChocAn manager that details the services that have been provided during that week; can be requested at anytime during the week
+summary report - a report that is provided to the manager of accounts payable that details every provider to be paid by ChocAn and the number of consultations each provider has made with the total fee for each provider for a given week
+validation - the process of determining a member's status which could return an invalid number, member suspended, or validated to the provider terminal
+
