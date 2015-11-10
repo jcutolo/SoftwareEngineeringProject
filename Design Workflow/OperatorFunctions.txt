@@ -1,0 +1,51 @@
+addMember(name,streetAddress,city,state,zipCode,status=goodStanding):
+	new_member = MemberClass(name,streetAdress,city,state,zipCode,status)		
+	
+	if (new_member not in hash table)
+		add new_member to hash table 
+	else 
+		return error	
+					 
+	
+
+addProvider():
+	new_Provider = ProviderClass(name,streetAdress,city,state,zipCode,servicesOffered)		
+	
+	if (new_Provider not in hash table)
+		add new_Provider to hash table 
+		updateProviderDirectory
+	else 
+		return error
+
+deleteMember(memberList,id):
+	if id in memberList
+		memberList.remove(id)
+	else
+		return error
+
+deleteProvider(providerList,id):
+	if id in providerList
+		providerList.remove(id)
+	else
+		return error
+
+updateExistingMember(id, memberList, attribute, value): #gets member from memberList and updates attribute
+	if id in memberList
+		member = memberList.getMember(id)
+		member.attribute = value
+	else
+		return error
+
+
+updateExsistingProvider(id,providerList,name=none,streetAdress=none,city=none,state=none,zipCode=none,servicesOffered= none):
+	if id in providerList
+		provider = providerList.getMember(id)
+		provider.attribute = value
+	else
+		return error
+
+
+
+
+
+	
