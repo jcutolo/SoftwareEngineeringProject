@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   main.cpp
+ * File: CSC 470 Project
  * Author: Josh
  *
  * Created on November 12, 2015, 5:50 PM
@@ -14,7 +14,10 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
+#include <iostream>
+
 using namespace std;
+
 class Member {
 public:
     struct newMember {
@@ -27,6 +30,7 @@ public:
     };
     vector<newMember> memberContainer;
     newMember newestMember;
+    Member(void) {};
     Member(string &name, int &ID, string &streetAddress, string &city, string &state, int &zipCode) {
         newestMember.memberName = name;
         newestMember.memberID = ID;
@@ -57,6 +61,7 @@ public:
     };
     vector<newProvider> providerContainer;
     newProvider newestProvider;
+    Provider(void) {};
     Provider(string &name, int &ID, string &streetAddress, string &city, string &state, int &zipCode) {
         newestProvider.providerName = name;
         newestProvider.providerID = ID;
@@ -95,11 +100,11 @@ void Operator::deleteMember(int ID) {
 
 void Operator::updateMember(int ID) {
     int memberID;
-    std::cout << "\nPlease enter the ID of the member you are would like to update: ";
-    std::cin >> memberID;
-    //now cycle through the member container to find the specified member
-    //once found the operator is asked which information he/she would like to update
-    //if no ID matches the one given to the function an error message is returned*/
+    cout << "\nPlease enter the ID of the member you are would like to update: ";
+    cin >> memberID;
+    /*now cycle through the member container to find the specified member
+    once found the operator is asked which information he/she would like to update
+    if no ID matches the one given to the function an error message is returned*/
 }
 
 void Operator::addProvider(string name, int ID, string streetAddress, string city, string state, int zipCode) {
@@ -112,11 +117,11 @@ void Operator::deleteProvider(int ID) {
 
 void Operator::updateProvider(int ID) {
     int providerID;
-    std::cout << "\nPlease enter the ID of the provider you would like to update: ";
-    std::cin >> providerID;
-    //now cycle through the provider container to find the specified provider
-    //once found the operator is asked which information he/she would like to update
-    //if no ID matches the one given to the function an error message is returned*/
+    cout << "\nPlease enter the ID of the provider you would like to update: ";
+    cin >> providerID;
+    /*now cycle through the provider container to find the specified provider
+    once found the operator is asked which information he/she would like to update
+    if no ID matches the one given to the function an error message is returned*/
 }
 
 class Fee {
@@ -127,14 +132,20 @@ public:
         string name;
     };
     newFee newestFee;
-    vector<newFee> providerDirectory;
+    vector<newFee> providerDirectoryContainer;
+    Fee() {};
     Fee(int code, double Fee, string feeName) {
         newestFee.serviceCode = code;
         newestFee.fee = Fee;
         newestFee.name = feeName;
-        providerDirectory.push_back(newestFee);
+        providerDirectoryContainer.push_back(newestFee);
     }
+    double providerDirectory(int serviceCode);
 };
+
+double Fee::providerDirectory(int serviceCode) {
+    //search the provider Directory for the fee associated with the service code passed to the function
+}
 
 class Claim {
 public:
@@ -144,6 +155,7 @@ public:
         string dateServiceProvided;
     };
     newClaim newestClaim;
+    Claim(void) {};
     Claim(string &cDate, string &cTime, string &dateProvided) {
         newestClaim.currentDate = cDate;
         newestClaim.currentTime = cTime;
@@ -157,6 +169,18 @@ public:
     void printProviderReport();
     void printManagerReport();
 };
+
+void Report::printMemberReport() {
+    //need to generate the code to print the member report every Friday or upon request
+}
+
+void Report::printProviderReport() {
+    //need to generate the code to print the provider report every Friday or upon request
+}
+
+void Report::printManagerReport() {
+    //need to generate the code to print the manager report every Friday or upon request
+}
 
 class UserInterface {
 public:
@@ -174,21 +198,26 @@ public:
 void UserInterface::userInterface(void) {
     Provider newProvider;
     Member newMember;
-    std::cout << "\nPlease enter your provider number: ";
-    std::cin >> providerNumber;
+    Fee newFee;
+    
+    cout << "\nPlease enter your provider number: ";
+    cin >> providerNumber;
     newProvider.verifyProvider(providerNumber);
-    std::cout << "\nNow enter the member's identification number: ";
-    std::cin >> memberID;
+    cout << "\nNow enter the member's identification number: ";
+    cin >> memberID;
     newMember.verifyMember(memberID);
-    std::cout << "\nIn order to be billed for your services you must first re-enter the member's identification number: ";
-    std::cin >> memberID;
+    cout << "\nIn order to be billed for your services you must first re-enter the member's identification number: ";
+    cin >> memberID;
     newMember.verifyMember(memberID);
-    std::cout << "\nEnter the six-digit service code corresponding to the service that was provided: ";
-    std::cin >> serviceCode;
-    //ProviderDirectory(serviceCode);
-    std::cout << "\nEnter any additional comments about the service provided to the member: ";
-    std::cin >> comments;
-    //Send the comments and any other information to a specific function to hold*/
+    cout << "\nNow, enter the date the service was provided to the member in the format MM-DD-YYYY: ";
+    cin >> dateServiceProvided;
+    cout << "\nEnter the six-digit service code corresponding to the service that was provided: ";
+    cin >> serviceCode;
+    newFee.providerDirectory(serviceCode);
+    cout << "\nEnter any additional comments about the service provided to the member: ";
+    cin >> comments;
+    //retrieve current date and time and pass to the claim class as well as the comments
+    Claim newClaim(currentDate, currentTime, dateServiceProvided);
 }
 /*
  * 
@@ -203,6 +232,11 @@ int main(void) {
     newOperator.addProvider("Clinton Thomas", 000000002, "1234 Murray Drive", "Asheville", "NC", 28801);
     newOperator.addProvider("Diana Sawyer", 000000003, "6873 Thomas Court", "Aberdeen", "NC", 28315);
     newOperator.addProvider("Tammy Smith", 000000004, "5893 Main Street", "Hope Mills", "NC", 28348);
+    
+    //Need to generate code for handling the input text files
+    //provider text file
+    //member text file
+    //provider directory text file so on and so forth
     
     UserInterface newUserInterface;
     newUserInterface.userInterface();
