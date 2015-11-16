@@ -1,0 +1,5 @@
+def lookUpFeeToBePaid(serviceCode):
+	providerDirectory = getProviderDirectory() # get the provider directory
+	service = providerDirectory[serviceCode]   # find the service in the provider directory
+	fee = service.fee			   # get the fee from the service object
+	return fee				   # return the fee
