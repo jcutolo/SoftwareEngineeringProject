@@ -1,0 +1,5 @@
+submitClaim():
+	if contents of Claim object is valid:
+		Send claim to database
+	else:
+		Print error to console

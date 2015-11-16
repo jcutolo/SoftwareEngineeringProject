@@ -1,0 +1,7 @@
+getMember(serviceId):
+	Search memberList for member matching serviceId
+	if a member was found:
+		return found member object
+	else:
+		Print error to console
+	

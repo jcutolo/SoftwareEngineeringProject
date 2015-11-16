@@ -1,0 +1,3 @@
+assignNewIDNumber():
+	Check memberList for unused service number
+	Assign new service number to Member object's member variable, IDNumber

@@ -43,9 +43,3 @@ updateExsistingProvider(id,providerList,name=none,streetAdress=none,city=none,st
 		provider.attribute = value
 	else
 		return error
-
-
-
-
-
-	
