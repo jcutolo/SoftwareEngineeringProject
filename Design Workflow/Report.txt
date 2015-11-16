@@ -1,0 +1,63 @@
+def printManagerReport():
+	reportForm = ""
+	providerList = all providers who provided service for week
+	i = 0
+	j = 0 
+	totalSum = 0
+	for each provider in providerList:
+		sum = 0
+		k = 0
+		reportForm = reportform+','+str(providerName)
+		servicesProvided = all instances of a service offered in this week
+		for each service in servicesProvided:
+			sum += serviceFee
+			k += 1
+		reportForm = reportForm+','+str(j) #total number of services
+		reportForm = reportForm+','+str(sum) #total fee for provider
+		i += 1
+		j += k
+		totalSum += sum
+	reportForm = reportForm+','+str(i) #total number of providers who provided services
+	reportForm = reportForm+','+str(j) #total number of consultations
+	reportForm = reportForm+','+str(sum) #total fee fro all providers
+	return reportForm
+
+def printMemberReport(member):
+	reportForm = ""
+	reportForm = reportform+','+str(memberName)
+	reportForm = reportform+','+str(memberID)
+	reportForm = reportform+','+str(memberAddress)
+	reportForm = reportform+','+str(memberCity)
+	reportForm = reportform+','+str(memberState)
+	reportForm = reportform+','+str(memberZIPCode)
+	memberServices = all services provided to member for week
+	for each service in memberServices:
+		reportForm = reportForm+','+str(serviceDate)
+		reportForm = reportForm+','+str(providerName)
+		reportForm = reportForm+','+str(serviceName)
+	return reportForm
+
+def printProviderReport(provider):
+	reportForm = ""
+	i = 0
+	sum = 0
+	reportForm = reportform+','+str(providerName)
+	reportForm = reportform+','+str(providerID)
+	reportForm = reportform+','+str(providerAddress)
+	reportForm = reportform+','+str(providerCity)
+	reportForm = reportform+','+str(providerState)
+	reportForm = reportform+','+str(providerZIPCode)
+	serviceList = all services provided for week
+	for each service in serviceList:
+		reportForm = reportform+','+str(serviceDate)
+		reportForm = reportform+','+str(compDateAndTime)
+		reportForm = reportform+','+str(memberName)
+		reportForm = reportform+','+str(memberID)
+		reportForm = reportform+str(serviceCode)
+		reportForm = reportform+str(serviceFee)
+		i += 1
+		sum += serviceFee
+	
+	reportForm = reportform+','+str(i) #total number of consultations
+	reportForm = reportform+','+str(sum) #total fee for the week
+	return reportForm
