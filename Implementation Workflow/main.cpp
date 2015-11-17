@@ -21,26 +21,27 @@ using namespace std;
 class Member {
 public:
     struct newMember {
-        string memberName;
         int memberID;
+        string memberName;
         string memberStreetAddress;
         string memberCity;
         string memberState;
         int memberZipCode;
     };
-    vector<newMember> memberContainer;
     newMember newestMember;
+    vector<newMember> memberContainer;
+    string verifyMember(int ID);
+    void memberController(vector<newMember> &memberContainer, struct newMember newestMember);
     Member(void) {};
-    Member(string &name, int &ID, string &streetAddress, string &city, string &state, int &zipCode) {
-        newestMember.memberName = name;
+    Member(int &ID, string &name, string &streetAddress, string &city, string &state, int &zipCode) {
         newestMember.memberID = ID;
+        newestMember.memberName = name;
         newestMember.memberStreetAddress = streetAddress;
         newestMember.memberCity = city;
         newestMember.memberState = state;
         newestMember.memberZipCode = zipCode;
-        memberContainer.push_back(newestMember);
+        memberController(memberContainer,newestMember);
     }
-    string verifyMember(int ID);
 };
 
 string Member::verifyMember(int ID) {
@@ -49,29 +50,34 @@ string Member::verifyMember(int ID) {
     //if it is not found the program displays an error message
 }
 
+void Member::memberController(vector<newMember> &container, struct newMember newestMember) {
+    container.push_back(newestMember);
+}
+
 class Provider {
 public:
     struct newProvider {
-        string providerName;
         int providerID;
+        string providerName;
         string providerStreetAddress;
         string providerCity;
         string providerState;
         int providerZipCode;
     };
-    vector<newProvider> providerContainer;
     newProvider newestProvider;
+    vector<newProvider> providerContainer;
+    string verifyProvider(int ID);
+    void providerController(vector<newProvider> &providerContainer, struct newProvider newestProvider);
     Provider(void) {};
-    Provider(string &name, int &ID, string &streetAddress, string &city, string &state, int &zipCode) {
-        newestProvider.providerName = name;
+    Provider(int &ID, string &name, string &streetAddress, string &city, string &state, int &zipCode) {
         newestProvider.providerID = ID;
+        newestProvider.providerName = name;
         newestProvider.providerStreetAddress = streetAddress;
         newestProvider.providerCity = city;
         newestProvider.providerState = state;
         newestProvider.providerZipCode = zipCode;
-        providerContainer.push_back(newestProvider);
+        providerController(providerContainer, newestProvider);
     }
-    string verifyProvider(int ID);
 };
 
 string Provider::verifyProvider(int ID) {
@@ -80,25 +86,60 @@ string Provider::verifyProvider(int ID) {
     //if it is not found the program will return an error message   
 }
 
-class Operator {
+void Provider::providerController(vector<newProvider> &container, struct newProvider newestProvider) {
+    container.push_back(newestProvider);
+}
+
+class Service {
 public:
-    void addMember(string name, int ID, string streetAddress, string city, string state, int zipCode);
-    void deleteMember(int ID);
-    void updateMember(int ID);
-    void addProvider(string name, int ID, string streetAddress, string city, string state, int zipCode);
-    void deleteProvider(int ID);
-    void updateProvider(int ID);
+    struct newService {
+        int serviceCode;
+        string name;
+        double fee;
+    };
+    newService newestFee;
+    vector<newService> providerDirectoryContainer;
+    Service(void) {};
+    Service(int &code, string &serviceName, double &Fee) {
+        newestFee.serviceCode = code;
+        newestFee.name = serviceName;
+        newestFee.fee = Fee;
+        providerDirectoryContainer.push_back(newestFee);
+    }
+    double lookUpFeeToBePaid(int serviceCode);
+    void printProviderDirectory(vector<newService> providerDirectoryContainer);
 };
 
-void Operator::addMember(string name, int ID, string streetAddress, string city, string state, int zipCode) {
-    Member* newMember = new Member(name, ID, streetAddress, city, state, zipCode);
+double Service::lookUpFeeToBePaid(int serviceCode) {
+    //search the provider Directory for the fee associated with the service code passed to the function
+}
+
+void Service::printProviderDirectory(vector<newService> providerDirectoryContainer) {
+    //print the contents of the provider directory container to a file
+}
+
+class Operator {
+public:
+    void addMember(int ID, string name, string streetAddress, string city, string state, int zipCode);
+    void deleteMember(int ID);
+    void updateMember(int ID, string name, string streetAddress, string city, string state, int zipCode);
+    void addProvider(int ID, string name, string streetAddress, string city, string state, int zipCode);
+    void deleteProvider(int ID);
+    void updateProvider(int ID, string name, string streetAddress, string city, string state, int zipCode);
+    void addService(int code, string name, double fee);
+    void deleteService(int code);
+    void updateService(int code, string name, double fee);
+};
+
+void Operator::addMember(int ID, string name, string streetAddress, string city, string state, int zipCode) {
+    Member* newMember = new Member(ID, name, streetAddress, city, state, zipCode);
 }
 
 void Operator::deleteMember(int ID) {
     //find member by ID provided and delete them from the vector
 }
 
-void Operator::updateMember(int ID) {
+void Operator::updateMember(int ID, string name, string streetAddress, string city, string state, int zipCode) {
     int memberID;
     cout << "\nPlease enter the ID of the member you are would like to update: ";
     cin >> memberID;
@@ -107,15 +148,15 @@ void Operator::updateMember(int ID) {
     if no ID matches the one given to the function an error message is returned*/
 }
 
-void Operator::addProvider(string name, int ID, string streetAddress, string city, string state, int zipCode) {
-    Provider* newProvider = new Provider(name, ID, streetAddress, city, state, zipCode);
+void Operator::addProvider(int ID, string name, string streetAddress, string city, string state, int zipCode) {
+    Provider* newProvider = new Provider(ID, name, streetAddress, city, state, zipCode);
 }
 
 void Operator::deleteProvider(int ID) {
     //find provider by ID provided and delete them from the vector
 }
 
-void Operator::updateProvider(int ID) {
+void Operator::updateProvider(int ID, string name, string streetAddress, string city, string state, int zipCode) {
     int providerID;
     cout << "\nPlease enter the ID of the provider you would like to update: ";
     cin >> providerID;
@@ -124,27 +165,16 @@ void Operator::updateProvider(int ID) {
     if no ID matches the one given to the function an error message is returned*/
 }
 
-class Fee {
-public:
-    struct newFee {
-        int serviceCode;
-        double fee;
-        string name;
-    };
-    newFee newestFee;
-    vector<newFee> providerDirectoryContainer;
-    Fee() {};
-    Fee(int code, double Fee, string feeName) {
-        newestFee.serviceCode = code;
-        newestFee.fee = Fee;
-        newestFee.name = feeName;
-        providerDirectoryContainer.push_back(newestFee);
-    }
-    double providerDirectory(int serviceCode);
-};
+void Operator::addService(int code, string name, double fee) {
+    Service* newService = new Service(code, name, fee);
+}
 
-double Fee::providerDirectory(int serviceCode) {
-    //search the provider Directory for the fee associated with the service code passed to the function
+void Operator::deleteService(int code) {
+    //find the service by code and delete from the provider directory
+}
+
+void Operator::updateService(int code, string name, double fee) {
+    //find the specified service by code then check the directory to see what needs to be changed
 }
 
 class Claim {
@@ -161,6 +191,7 @@ public:
         newestClaim.currentTime = cTime;
         newestClaim.dateServiceProvided = dateProvided;
     }
+    //also need to somehow keep track of which providers are entering in the claims in order to keep track for reports
 };
 
 class Report {
@@ -182,9 +213,9 @@ void Report::printManagerReport() {
     //need to generate the code to print the manager report every Friday or upon request
 }
 
-class UserInterface {
+class Terminal {
 public:
-    int providerNumber; 
+    int providerID; 
     int memberID;
     string currentDate;
     string currentTime;
@@ -195,14 +226,14 @@ public:
     void userInterface(void);
 };
 
-void UserInterface::userInterface(void) {
+void Terminal::userInterface(void) {
     Provider newProvider;
     Member newMember;
-    Fee newFee;
+    Service newService;
     
     cout << "\nPlease enter your provider number: ";
-    cin >> providerNumber;
-    newProvider.verifyProvider(providerNumber);
+    cin >> providerID;
+    newProvider.verifyProvider(providerID);
     cout << "\nNow enter the member's identification number: ";
     cin >> memberID;
     newMember.verifyMember(memberID);
@@ -213,7 +244,7 @@ void UserInterface::userInterface(void) {
     cin >> dateServiceProvided;
     cout << "\nEnter the six-digit service code corresponding to the service that was provided: ";
     cin >> serviceCode;
-    newFee.providerDirectory(serviceCode);
+    newService.lookUpFeeToBePaid(serviceCode);
     cout << "\nEnter any additional comments about the service provided to the member: ";
     cin >> comments;
     //retrieve current date and time and pass to the claim class as well as the comments
@@ -224,21 +255,20 @@ void UserInterface::userInterface(void) {
  */
 int main(void) {
     Operator newOperator;
-    newOperator.addMember("Timothy Hobbs", 100000000, "1456 Dove Drive", "Fayetteville", "NC", 28314);
-    newOperator.addMember("Tom Jones", 100000001, "3875 Hopeless Lane", "Asheville", "NC", 28801);
-    newOperator.addMember("Jerry Pete", 100000002, "2145 Butter wood Circle", "Hope Mills", "NC", 28348);
-    newOperator.addMember("Michael Black", 100000003, "5421 Timothy Street", "Aberdeen", "NC", 28315);
-    newOperator.addProvider("Pete White", 000000001, "7856 Candle Lane", "Fayetteville", "NC", 28314);
-    newOperator.addProvider("Clinton Thomas", 000000002, "1234 Murray Drive", "Asheville", "NC", 28801);
-    newOperator.addProvider("Diana Sawyer", 000000003, "6873 Thomas Court", "Aberdeen", "NC", 28315);
-    newOperator.addProvider("Tammy Smith", 000000004, "5893 Main Street", "Hope Mills", "NC", 28348);
+    newOperator.addMember(1, "Adam Blerk", "2932 Circle Drive", "Port Shepstone", "NY", 12345);
+    newOperator.addMember(3, "Brian Macbeth", "100 Macbeth's Castle", "Inverness", "SL", 52561);
+    newOperator.addMember(5, "Cathy Montague", "101 Montague Place", "Verona", "IT", 10002);
+    newOperator.addMember(7, "Debbie Capulet", "212 Capulet Drive", "Verona", "IL", 20101);
+    newOperator.addProvider(2, "Alexander", "123 Owen Street", "Fayetteville", "NC", 28303);
+    //newOperator.addProvider(4, "Berry", "xxxxx", "yyyyy", "SC", 23456, "I");
+    newOperator.addProvider(6, "Carrel", "1200 Murchison Rd", "Fayetteville", "NC", 28301);
+    newOperator.addService(883948, "Aerobics exercises", 10.20);
+    newOperator.addService(11, "Aversion Therapy", 30.00);
+    newOperator.addService(555, "Chocolates in excess", 100.00);
+    newOperator.addService(598470, "Dietician Session", 20.50);
+    newOperator.addService(22, "Yoga", 12.50);
     
-    //Need to generate code for handling the input text files
-    //provider text file
-    //member text file
-    //provider directory text file so on and so forth
-    
-    UserInterface newUserInterface;
+    Terminal newUserInterface;
     newUserInterface.userInterface();
     return 0;
 }
