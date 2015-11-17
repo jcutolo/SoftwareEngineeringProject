@@ -1,5 +1,4 @@
-submitClaim():
-	if contents of Claim object is valid:
-		Send claim to database
-	else:
-		Print error to console
+submitClaim(int providerID, int memberID, string dateAndTime, string dateProvided, string comments):
+	create a new claim object to hold the new claim
+	add the dateAndTime string, the dateProvided string, and the comments string to the claim object
+	send the claim object to be stored in the claim container along with the specific provider and member ID's

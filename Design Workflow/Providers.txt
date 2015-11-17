@@ -1,0 +1,18 @@
+string verifyProvider(ID):
+	for i in size of providerContainer:
+		if providerContainer is empty:
+			print there are no providers in container to show
+		else if value in providerContainer at i equals ID:
+			print provider was found
+		else
+			print provider was not found
+
+void providerController(container, newProvider):
+	add the newProvider to the container
+
+void printProviderList():
+	for i in size of providerContainer:
+		if providerContainer is empty:
+			print there are no providers in container to show
+		else:
+			print the providerContainer contents in the desired format

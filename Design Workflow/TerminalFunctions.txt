@@ -1,0 +1,45 @@
+userInterface():
+	ask the user if he is a provider or an operator
+	if provider:
+		ask the provider for his/her provider ID
+		verify the provider ID is valid
+		if provider ID is valid:
+			ask the provider to enter a member ID
+			verify the member ID is valid
+			if member ID is valid:
+				ask the provider to enter the date the service was provided
+				retrieve the current date and time in the background
+				ask the provider to enter the service code
+				validate the service code with provider
+				look up the fee to be paid for the service
+				ask the provider to enter any additional comments he/she has
+			else member ID is invalid:
+				print invalid and why
+		else provider ID is not valid:
+			print error
+	if operator:
+		ask the operator if he would like to do something with a member, provider, or service
+		if choice is member:
+			ask the operator if he would like to add a member, delete a member, or update a member
+			if choice is add:
+				add the new member to the memberContainer via addMember function in operator
+			else if choice is delete:
+				delete the member from the memberContainer via deleteMember function in operator
+			else 
+				update the member from the memberContainer via updateMember function in operator
+		else if choice is provider:
+			ask the operator if he would like to add a provider, delete a provider, or update a provider
+			if choice is add:
+				add the new provider to the providerContainer via addProvider function in operator
+			else if choice is delete:
+				delete the provider from the providerContainer via deleteProvider function in operator
+			else
+				update the provider from the providerContainer via updateProvider function in operator
+		else
+			ask the operator if he would like to add a service, delete a service, or update a service
+			if choice is add:
+				add the new service to the providerDirectoryContainer via addService in operator
+			else if choice is delete:
+				delete the service from the providerDirectoryContainer via deleteService in operator
+			else
+				update the service from the providerDirectoryContainer via updateService in operator

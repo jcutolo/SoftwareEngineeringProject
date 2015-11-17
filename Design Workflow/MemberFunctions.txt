@@ -1,3 +1,19 @@
-assignNewIDNumber():
-	Check memberList for unused service number
-	Assign new service number to Member object's member variable, IDNumber
+string verifyMember(ID):
+	for i in size of memberContainer:
+		if memberContainer is empty:
+			print there are no members in container to show
+		else if value in memberContainer at i equals ID:
+			print Validated if there member is valid and has paid up to date
+			print Invalid and reason
+		else 
+			print Member was not found
+
+void memberController(container, newMember):
+	add the newMember to the vector
+
+void printMemberList():
+	for i in size of memberContainer: 
+		if memberContainer is empty:
+			print there are no members in container to show
+		else:
+			print the memberContainer contents in the desired format

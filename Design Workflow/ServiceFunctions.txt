@@ -1,5 +1,18 @@
-def lookUpFeeToBePaid(serviceCode):
-	providerDirectory = getProviderDirectory() # get the provider directory
-	service = providerDirectory[serviceCode]   # find the service in the provider directory
-	fee = service.fee			   # get the fee from the service object
-	return fee				   # return the fee
+double lookUpFeeToBePaid(serviceCode):
+	for i in providerDirectoryContainer:
+		if providerDirectory container is empty:
+			print nothing in the provider directory
+		else if providerDirectoryContainer at index i serviceCode equals the serviceCode provided to the function:
+			print the fee associated with the service at that index
+		else 
+			print error
+void createProviderDirectory(container, newService):
+	add the new service to the container
+void printProviderDirectory(container):
+	for i in providerDirectoryContainer:
+		if providerDirectoryContainer is empty:
+			print nothing in the container to print
+		else:
+			print the providerDirectoryContainer in the specified format
+
+				  

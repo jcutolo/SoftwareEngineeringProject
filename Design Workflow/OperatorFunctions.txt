@@ -1,45 +1,69 @@
-addMember(name,streetAddress,city,state,zipCode,status=goodStanding):
-	new_member = MemberClass(name,streetAdress,city,state,zipCode,status)		
-	
-	if (new_member not in hash table)
-		add new_member to hash table 
-	else 
-		return error	
+addMember(ID, name,streetAddress,city,state,zipCode):
+	new_member = MemberClass(ID, name,streetAdress,city,state,zipCode)		
+	for i in memberList:
+		if (new_member not in vector)
+			add the member to the vector 
+		else 
+			return error	
 					 
 	
 
-addProvider():
-	new_Provider = ProviderClass(name,streetAdress,city,state,zipCode,servicesOffered)		
-	
-	if (new_Provider not in hash table)
-		add new_Provider to hash table 
-		updateProviderDirectory
-	else 
-		return error
+addProvider(ID, name, streetAddress, city, state, zipCode):
+	new_provider = ProviderClass(ID, name,streetAdress,city,state,zipCode)
+	for i in providerList:
+		if (new_provider not in vector)
+			add the provider to the vector
+		else
+			return error
+addService(code, name, fee):
+	new_service = Service(code, name, fee)
+	for i in serviceList:
+		if (new_service not in vector)
+			add the service to the vector
+		else
+			return error		
 
-deleteMember(memberList,id):
-	if id in memberList
-		memberList.remove(id)
-	else
-		return error
+deleteMember(id):
+	for i in memberList:
+		if id in memberList
+			memberList.remove(id)
+		else
+			return error
 
-deleteProvider(providerList,id):
-	if id in providerList
-		providerList.remove(id)
-	else
-		return error
+deleteProvider(id):
+	for i in providerList:
+		if id in providerList
+			providerList.remove(id)
+		else
+			return error
+deleteService(code):
+	for i in serviceList:
+		if code in serviceList
+			serviceList.remove(service)
+		else
+			return error
 
-updateExistingMember(id, memberList, attribute, value): #gets member from memberList and updates attribute
-	if id in memberList
-		member = memberList.getMember(id)
-		member.attribute = value
-	else
-		return error
+updateExistingMember(id):
+	for i in memberList:
+		if id in memberList
+			ask the operator what he would like to update
+			update that specific attribute for the specific member in the list
+		else
+			return error
 
 
-updateExsistingProvider(id,providerList,name=none,streetAdress=none,city=none,state=none,zipCode=none,servicesOffered= none):
-	if id in providerList
-		provider = providerList.getMember(id)
-		provider.attribute = value
-	else
-		return error
+updateExistingProvider(id):
+	for i in providerList:
+		if id in providerList
+			ask the operator what he would like to update
+			update that specific attribute for the specific provider in the list
+		else
+			return error
+
+updateExistingService(code):
+	for i in serviceList:
+		if code in serviceList
+			ask the operator what he would like to update
+			update that specific attribute for the specific service in the list
+		else
+			return error
