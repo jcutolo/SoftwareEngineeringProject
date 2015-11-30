@@ -95,7 +95,26 @@ public class Operator {
 	public void updateMember(Datacenter d){
 		System.out.print("Enter member number: ");
 		int memberNumber = keyboard.nextInt();
-		d.updateMember(memberNumber);
+		String name;
+		String streetAddress;
+		String city;
+		String state;
+		int zip;
+		int status;
+		System.out.print("Enter member name: ");
+		name = keyboard.next();
+		System.out.print("Enter member street address: ");
+		streetAddress = keyboard.next();
+		System.out.print("Enter member city: ");
+		city = keyboard.next();
+		System.out.print("Enter member state: ");
+		state = keyboard.next();
+		System.out.print("Enter member zip code: ");
+		zip = keyboard.nextInt();
+		System.out.print("Enter member status: ");
+		status = keyboard.nextInt();
+		Member m = new Member(name,memberNumber,streetAddress,city,state,zip,status);
+		d.updateMember(m);
 	}
 	public void addProvider(Datacenter d){
 		String name;
@@ -104,17 +123,17 @@ public class Operator {
 		String city;
 		String state;
 		int zip;
-		System.out.print("Enter member name: ");
+		System.out.print("Enter provider name: ");
 		name = keyboard.next();
-		System.out.print("Enter member number: ");
+		System.out.print("Enter provider number: ");
 		number = keyboard.nextInt();
-		System.out.print("Enter member street address: ");
+		System.out.print("Enter provider street address: ");
 		streetAddress = keyboard.next();
-		System.out.print("Enter member city: ");
+		System.out.print("Enter provider city: ");
 		city = keyboard.next();
-		System.out.print("Enter member state: ");
+		System.out.print("Enter provider state: ");
 		state = keyboard.next();
-		System.out.print("Enter member zip code: ");
+		System.out.print("Enter provider zip code: ");
 		zip = keyboard.nextInt();
 		Provider p = new Provider(name,number,streetAddress,city,state,zip);
 		d.addProvider(p);
@@ -125,9 +144,20 @@ public class Operator {
 		d.removeProvider(providerNumber);
 	}
 	public void updateProvider(Datacenter d){
-		System.out.print("Enter member number: ");
+		System.out.print("Enter provider number: ");
 		int providerNumber = keyboard.nextInt();
-		d.updateProvider(providerNumber);
+		System.out.print("Enter provider name: ");
+		String name = keyboard.next();
+		System.out.print("Enter provider street address: ");
+		String streetAddress = keyboard.next();
+		System.out.print("Enter provider city: ");
+		String city = keyboard.next();
+		System.out.print("Enter provider state: ");
+		String state = keyboard.next();
+		System.out.print("Enter provider zip code: ");
+		int zip = keyboard.nextInt();
+		Provider p = new Provider(name,providerNumber,streetAddress,city,state,zip);
+		d.updateProvider(p);
 	}
 	public void addService(Datacenter d){
 		System.out.print("Enter service name: ");
@@ -140,7 +170,14 @@ public class Operator {
 		d.addPDI(p);
 	}
 	public void updateService(Datacenter d){
-		
+		System.out.print("Enter member number: ");
+		int serviceNumber = keyboard.nextInt();
+		System.out.print("Enter service name: ");
+		String serviceName = keyboard.next();
+		System.out.print("Enter service fee: ");
+		double fee = keyboard.nextDouble();
+		PDI p = new PDI(serviceNumber,serviceName,fee);
+		d.updatePDI(p);
 	}
 	public void removeService(Datacenter d){
 		System.out.print("Enter service code: ");

@@ -41,6 +41,7 @@ public class ProviderTerminal {
 					break;
 				case 2:
 					System.out.println("Retrieving provider directory");
+					getProviderDirectory(d);
 					break;
 				case 3:
 					System.out.print("Validating member for service. Please enter member number: ");
@@ -82,5 +83,8 @@ public class ProviderTerminal {
 	public boolean logOut(){
 		System.out.println("Logging off...");
 		return false;
+	}
+	public void getProviderDirectory(Datacenter d){
+		d.printProviderDirectory();
 	}
 }
