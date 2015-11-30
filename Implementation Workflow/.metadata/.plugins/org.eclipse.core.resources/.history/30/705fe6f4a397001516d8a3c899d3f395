@@ -30,15 +30,17 @@ public class test {
 		d.addMember(n4);
 		
 		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,883948,null))
-		d.addClaim(Claim(11,03,2015,2,5,11,"Hopeless case"))
-		d.addClaim(Claim(11,15,2015,2,3,555,null))
-		d.addClaim(Claim(11,03,2015,4,1,598470,))
-		d.addClaim(Claim(11,03,2015,4,7,883948))
-		d.addClaim(Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890))
-		d.addClaim(Claim(11,09,2015,6,5,22,"Control your mind!"))
-		d.addClaim(Claim(11,08,2015,6,7,555,"Death by chocolate"))
+		d.addClaim(Claim(11,10,2015,2,1,11,null)
+		d.addClaim(Claim(11,10,2015,2,1,883948,null)
+		d.addClaim(Claim(11,03,2015,2,5,11,"Hopeless case")
+		d.addClaim(Claim(11,15,2015,2,3,555,null)
+		d.addClaim(Claim(11,03,2015,4,1,598470,)
+		d.addClaim(Claim(11,03,2015,4,7,883948)
+		d.addClaim(Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890)
+		d.addClaim(Claim(11,09,2015,6,5,22,"Control your mind!")
+		d.addClaim(Claim(11,08,2015,6,7,555,"Death by chocolate")
+		
+		
 		
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Testing simulation for Chocoholics Anonymous program.");

@@ -29,16 +29,25 @@ public class test {
 		d.addMember(n3);
 		d.addMember(n4);
 		
-		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,883948,null))
-		d.addClaim(Claim(11,03,2015,2,5,11,"Hopeless case"))
-		d.addClaim(Claim(11,15,2015,2,3,555,null))
-		d.addClaim(Claim(11,03,2015,4,1,598470,))
-		d.addClaim(Claim(11,03,2015,4,7,883948))
-		d.addClaim(Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890))
-		d.addClaim(Claim(11,09,2015,6,5,22,"Control your mind!"))
-		d.addClaim(Claim(11,08,2015,6,7,555,"Death by chocolate"))
+		11-16-2015 15:23:13#11-10-2015#2#1#11#883948#null
+		11-16-2015 16:22:09#11-03-2015#2#5#11#Hopeless case
+		11-17-2015 11:28:00#11-15-2015#2#3#555#null
+		11-18-2015 16:31:44#11-03-2015#4#1#598470#
+		11-18-2015 13:33:40#11-03-2015#4#7#883948
+		12345678901234567890123456789012345678901234567890123456789012345678901234567
+		890
+		12345678901234567890
+		11-19-2015 16:31:44#11-09-2015#6#5#22#Control your mind!
+		11-18-2015 16:31:48#11-08-2015#6#7#555#Death by chocolate
+		
+		p1.Claim(11,10,2015,p1.Number,1,11,null)
+		p1.Claim(11,10,2015,p1.Number,1,883948,null)
+		p1.Claim(11,03,2015,p1.Number,5,11,"Hopeless case")
+		p1.Claim(11,15,2015,p1.Number,3,555,null)
+		p2.Claim(11,03,2015,p2.Number,1,598470,)
+		p2.Claim(11,03,2015,p2.Number,1,883948,null)
+		
+		
 		
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Testing simulation for Chocoholics Anonymous program.");
