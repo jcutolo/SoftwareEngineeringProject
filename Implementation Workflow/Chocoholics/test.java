@@ -43,7 +43,7 @@ public class test {
 		d.addClaim(new Claim(11,3,2015,4,1,598470,""));
 		//d.addClaim(new Claim(11,03,2015,4,7,883948));
 		//d.addClaim(new Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890));
-		d.addClaim(new Claim(11,9,2015,6,5,22,"Control your mind!"));
+		//d.addClaim(new Claim(11,9,2015,6,5,22,"Control your mind!"));
 		d.addClaim(new Claim(11,8,2015,6,7,555,"Death by chocolate"));
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Testing simulation for Chocoholics Anonymous program.");
