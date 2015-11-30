@@ -5,11 +5,17 @@ public class test {
 		
 		//Create testing objects
 		Datacenter d = new Datacenter();
-		d.addService(883948,"Aerobics exercises",10.20)
-		d.addService(11,"Aversion Therapy",30.00)
-		d.addService(555,"Chocolates in excess",100.00)
-		d.addService(598470,"Dietition session",20.50)
-		d.addService(22,"Yoga",$12.50)
+		
+		PDI q1 = new PDI(883948,"Aerobics exercises",10.20);
+		PDI q2 = new PDI(11,"Aversion Therapy",30.00);
+		PDI q3 = new PDI(555,"Chocolates in excess",100.00);
+		PDI q4 = new PDI(598470,"Dietition session",20.50);
+		//PDI q5 = new PDI(22,"Yoga",$12.50);
+		d.addPDI(q1);
+		d.addPDI(q2);
+		d.addPDI(q3);
+		d.addPDI(q4);
+		//d.addPDI(q5);
 		Manager m1 = new Manager("Fred",000000);
 		Manager m2 = new Manager("Apathy",000001);
 		Provider p1 = new Provider("Alexander",000002,"123 Owen Street","Fayetteville","NC",28303);
@@ -29,17 +35,16 @@ public class test {
 		d.addMember(n3);
 		d.addMember(n4);
 		
-		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,11,null))
-		d.addClaim(Claim(11,10,2015,2,1,883948,null))
-		d.addClaim(Claim(11,03,2015,2,5,11,"Hopeless case"))
-		d.addClaim(Claim(11,15,2015,2,3,555,null))
-		d.addClaim(Claim(11,03,2015,4,1,598470,))
-		d.addClaim(Claim(11,03,2015,4,7,883948))
-		d.addClaim(Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890))
-		d.addClaim(Claim(11,09,2015,6,5,22,"Control your mind!"))
-		d.addClaim(Claim(11,08,2015,6,7,555,"Death by chocolate"))
-		
+		d.addClaim(new Claim(11,10,2015,2,1,11,null));
+		d.addClaim(new Claim(11,10,2015,2,1,11,null));
+		d.addClaim(new Claim(11,10,2015,2,1,883948,null));
+		d.addClaim(new Claim(11,3,2015,2,5,11,"Hopeless case"));
+		d.addClaim(new Claim(11,15,2015,2,3,555,null));
+		d.addClaim(new Claim(11,3,2015,4,1,598470,""));
+		//d.addClaim(new Claim(11,03,2015,4,7,883948));
+		//d.addClaim(new Claim(1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890));
+		d.addClaim(new Claim(11,9,2015,6,5,22,"Control your mind!"));
+		d.addClaim(new Claim(11,8,2015,6,7,555,"Death by chocolate"));
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Testing simulation for Chocoholics Anonymous program.");
 		System.out.print("Please choose an option to test:\n"

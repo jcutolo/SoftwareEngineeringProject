@@ -10,9 +10,12 @@ public class Operator {
 				+ "4. Add provider\n"
 				+ "5. Update provider\n"
 				+ "6. Remove provider\n"
+				+ "7. Add service\n"
+				+ "8. Update service\n"
+				+ "9. Remove service\n"
 				+ "> ");
 		int input = keyboard.nextInt();
-		while(input!=7){
+		while(input!=10){
 			switch(input){
 			case 1:
 				System.out.println("Add member");
@@ -37,6 +40,18 @@ public class Operator {
 			case 6:
 				System.out.println("Remove provider");
 				removeProvider(d);
+				break;
+			case 7:
+				System.out.println("Add service");
+				addService(d);
+				break;
+			case 8:
+				System.out.println("Update service");
+				updateService(d);
+				break;
+			case 9:
+				System.out.println("Remove service");
+				removeService(d);
 				break;
 			default:
 				System.out.println("Invalid input. Please enter a valid choice.");
@@ -114,5 +129,22 @@ public class Operator {
 		int providerNumber = keyboard.nextInt();
 		d.updateProvider(providerNumber);
 	}
-
+	public void addService(Datacenter d){
+		System.out.print("Enter service name: ");
+		String serviceName = keyboard.next();
+		System.out.print("Enter service code: ");
+		int serviceCode = keyboard.nextInt();
+		System.out.print("Enter service fee: ");
+		double fee = keyboard.nextDouble();
+		PDI p = new PDI(serviceCode,serviceName,fee);
+		d.addPDI(p);
+	}
+	public void updateService(Datacenter d){
+		
+	}
+	public void removeService(Datacenter d){
+		System.out.print("Enter service code: ");
+		int serviceCode = keyboard.nextInt();
+		d.removePDI(serviceCode);
+	}
 }

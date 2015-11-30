@@ -1,11 +1,15 @@
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class ProviderTerminal {
+	Provider p=null;
 	public ProviderTerminal(Datacenter d){
 		Scanner keyboard = new Scanner(System.in);
-		boolean active = logIn();
+		boolean active = logIn(d);
 		while(!active){
-			active = logIn();
+			active = logIn(d);
 		}
 		while(active){
 			System.out.print("Please choose an action(#) to perform:\n"
@@ -18,14 +22,31 @@ public class ProviderTerminal {
 			while(input!=4){
 				switch(input){
 				case 1:
-					System.out.println("Submiting Claim");
+					System.out.println("Submiting Claim...");
+					System.out.print("Enter member number: ");
+					int memberNumber = keyboard.nextInt();
+					System.out.print("Enter month: ");
+					int month = keyboard.nextInt();
+					System.out.print("Enter day: ");
+					int day = keyboard.nextInt();
+					System.out.print("Enter year: ");
+					int year = keyboard.nextInt();
+					System.out.print("Enter service code: ");
+					int serviceCode = keyboard.nextInt();
+					//Print service code
+					System.out.print("Enter comment: ");
+					String comment = keyboard.next();
+					Claim c = new Claim(month,day,year,p.number,memberNumber,serviceCode,comment);
+					d.addClaim(c);
 					break;
 				case 2:
 					System.out.println("Retrieving provider directory");
 					break;
 				case 3:
 					System.out.print("Validating member for service. Please enter member number: ");
-					if (d.validateMember(keyboard.nextInt())){
+					int number = keyboard.nextInt();
+					if (d.validateMember(number)){
+						System.out.println(d.getMember(number).name);
 						System.out.println("Provided service.");
 					}
 					else{
@@ -42,16 +63,19 @@ public class ProviderTerminal {
 		}
 		
 	}
-	public boolean logIn(){
+	public boolean logIn(Datacenter d){
 		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Please swipe card or enter provider number: ");
 		int input = keyboard.nextInt();
-		if (((input/1000000000)>=1)||(input<0)){
-			System.out.println("Invalid range for provider number.");
+		this.p=d.getProvider(input);
+		if (this.p==null){
+			System.out.println("Improper value for provider number.");
 			return false;
 		}
 		else{
+			this.p=d.getProvider(input);
 			System.out.println("Successfully logged in.");
+			System.out.println(this.p.name);
 			return true;
 		}
 	}
