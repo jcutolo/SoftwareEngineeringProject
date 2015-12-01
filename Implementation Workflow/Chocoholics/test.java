@@ -17,7 +17,7 @@ public class test {
 		d.addPDI(q4);
 		//d.addPDI(q5);
 		Manager m1 = new Manager("Fred",000000);
-		Manager m2 = new Manager("Apathy",000001);
+		Manager m2 = new Manager("Apathy",000010);
 		Provider p1 = new Provider("Alexander",000002,"123 Owen Street","Fayetteville","NC",28303);
 		Provider p2 = new Provider("Berry",000004,"xxxxxx","yyyyy","SC",23456);
 		Provider p3 = new Provider("Carrel",000006,"1200 Murchison","Fayetteville","NC",28301);
@@ -75,6 +75,7 @@ public class test {
 					+ "> ");
 			input = keyboard.nextInt();
 		}
+		d.runAccountingProceedure();
 		System.out.println("Ending test simulation...");
 	}
 }

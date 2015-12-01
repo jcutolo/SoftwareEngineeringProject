@@ -15,10 +15,9 @@ public class Claim{
 		this.month = month;
 		this.day = day;
 		this.year = year;
-		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date dateobj = new Date();
-		String date = df.format(dateobj);
-		this.date=date;
+		this.date = df.format(dateobj);
 		this.providerNumber = providerNumber;
 		this.memberNumber = memberNumber;
 		this.serviceCode = serviceCode;

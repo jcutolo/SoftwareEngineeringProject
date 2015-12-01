@@ -11,6 +11,7 @@ public class ProviderService {
 		this.month=month;
 		this.day=day;
 		this.year=year;
+		this.date=date;
 		this.memberName=memberName;
 		this.memberNumber=memberNumber;
 		this.serviceCode = serviceCode;

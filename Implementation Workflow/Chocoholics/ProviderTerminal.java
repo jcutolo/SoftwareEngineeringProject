@@ -33,9 +33,9 @@ public class ProviderTerminal {
 					int year = keyboard.nextInt();
 					System.out.print("Enter service code: ");
 					int serviceCode = keyboard.nextInt();
-					//Print service code
+					keyboard.nextLine();
 					System.out.print("Enter comment: ");
-					String comment = keyboard.next();
+					String comment = keyboard.nextLine();
 					Claim c = new Claim(month,day,year,p.number,memberNumber,serviceCode,comment);
 					d.addClaim(c);
 					break;

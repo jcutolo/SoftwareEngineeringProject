@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -95,18 +97,20 @@ public class Datacenter {
 		}
 	}
 	public void printMemberReport(int memberNumber){
-		System.out.println("\t\t\tChocoholics Anonymous\n");
-                System.out.println("\t\t\tServices Received\n");
+		System.out.println("\t\tChocoholics Anonymous\n");
+                System.out.println("\t\tServices Received\n");
                 System.out.println("Week Ending: 12-4-2015");
                 System.out.println("Member Number: "+Integer.toString(getMember(memberNumber).number));
                 System.out.println("Member Name: "+ getMember(memberNumber).name);
                 System.out.println("Member Address: "+ getMember(memberNumber).streetAddress + ", "+getMember(memberNumber).city +", " +Integer.toString(getMember(memberNumber).zip) + "\n");
-                System.out.println("Service Date    Service\t\tProvider");
-                System.out.println("------------    -------\t\t--------");
+                
+                System.out.printf("%s  %s  %s\n","Service Date","Service                    ","Provider       ");
+                System.out.printf("%s  %s  %s\n","------------","---------------------------","---------------");
                 //Begin printing out the services now
                 Vector<MemberService> tmp = getMember(memberNumber).services;
                 for(int i =0;i<tmp.size();i++){
-                	System.out.println(Integer.toString(tmp.get(i).month)+ Integer.toString(tmp.get(i).day) +Integer.toString(tmp.get(i).year)+tmp.get(i).serviceName +" "+ tmp.get(i).providerName);
+                	System.out.printf(" %02d-%02d-%4d   %27s  %15s\n",tmp.get(i).month,tmp.get(i).day,tmp.get(i).year,tmp.get(i).serviceName,tmp.get(i).providerName);
+                	//System.out.println(Integer.toString(tmp.get(i).month)+ Integer.toString(tmp.get(i).day) +Integer.toString(tmp.get(i).year)+tmp.get(i).serviceName +" "+ tmp.get(i).providerName);
                 }
                 //End printing
 	}
@@ -118,18 +122,21 @@ public class Datacenter {
                 System.out.println("Week Ending: 12-4-2015");
                 System.out.println("Provider Number: "+ Integer.toString(getProvider(providerNumber).number));
                 System.out.println("Provider Name: "+ getProvider(providerNumber).name);
-                System.out.println("Address: "+getProvider(providerNumber).streetAddress+", "+getMember(providerNumber).city+", "+Integer.toString(getMember(providerNumber).zip)+"\n");
-                System.out.println("Submission Date-Time  Service Date  Code  Fee  Member No.  Member Name");
-                System.out.println("--------------------  ------------  ----  ---  ----------  -----------");
-                //Begin printing the claims the provider had for the week
+                System.out.println("Address: "+getProvider(providerNumber).streetAddress+", "+getProvider(providerNumber).city+", "+Integer.toString(getProvider(providerNumber).zip)+"\n");
+                
+                System.out.printf("%s  %s  %s  %s  %s  %s\n","Submission Date-Time","Service Date","Code      ","Fee       ","Member No. ","Member Name      ");
+                System.out.printf("%s  %s  %s  %s  %s  %s\n","--------------------","------------","----------","----------","-----------","-----------      ");
+                
                 Vector<ProviderService> tmp = getProvider(providerNumber).services;
                 for(int i =0;i<tmp.size();i++){
-                	System.out.println(tmp.get(i).date + Integer.toString(tmp.get(i).month) + Integer.toString(tmp.get(i).day) + Integer.toString(tmp.get(i).year) + Integer.toString(tmp.get(i).serviceCode) + Double.toString(tmp.get(i).fee) + Integer.toString(tmp.get(i).memberNumber) + tmp.get(i).memberName);
+                    System.out.printf("%20s  %02d-%02d-%04d    %-10d  $%8.2f   %-11d  %-11s\n",tmp.get(i).date, tmp.get(i).month, tmp.get(i).day, tmp.get(i).year, tmp.get(i).serviceCode, tmp.get(i).fee, tmp.get(i).memberNumber, tmp.get(i).memberName);
+                    numConsultations++;
+                    totalFee = totalFee+tmp.get(i).fee;
                 }
                 //End printing 
                 
                 System.out.println("Number of Consultations: " + numConsultations);
-                System.out.format("Total Fee:%.2f%n", totalFee);
+                System.out.format("Total Fee: $%.2f\n", totalFee);
 	}
         
         public void printManagerReport() {
@@ -139,8 +146,8 @@ public class Datacenter {
                 System.out.println("\t\tChocoholics Anonymous\n");
                 System.out.println("\t\tAccounts Payable\n");
                 System.out.println("Week Ending: 12-4-2015\n");
-                System.out.println("Provider Number   Consultations\t\tFee Provider Name");
-                System.out.println("---------------   -------------\t\t--- -------------");
+                System.out.printf("%s  %s  %s  %s\n","Provider Number","Consultations","       Fee","Provider Name");
+                System.out.printf("%s  %s  %s  %s\n","---------------","-------------","----------","-------------");
                 //Begin printing the accounts payable report
                 for (Map.Entry me : listOfProviders.entrySet()) {
                 	Provider tmp = (Provider)me.getValue();
@@ -149,18 +156,19 @@ public class Datacenter {
                 		sum=sum+tmp.services.get(i).fee;
                 		consultations = consultations+1;
                 	}
-                    System.out.println(Integer.toString(tmp.number)+" "+Integer.toString(tmp.services.size())+" $"+Double.toString(sum)+" "+tmp.name);
+                	System.out.printf("%15d  %13d  $%9.2f  %13s\n",tmp.number,tmp.services.size(),sum,tmp.name);
+                    //System.out.println(Integer.toString(tmp.number)+" "+Integer.toString(tmp.services.size())+" $"+Double.toString(sum)+" "+tmp.name);
                     total = total + sum;
                     count++;
                   }
                 //End printing
-                System.out.println("---------------   -------------\t\t--- -------------");
-                System.out.println("Totals:                       ");
-                System.out.println(Integer.toString(consultations)+" "+Double.toString(total)+" "+Integer.toString(count));
+                System.out.printf("%s  %s  %s  %s\n","---------------","-------------","----------","-------------");
+                System.out.printf("Totals:          %13d  $%9.2f  %13d\n",consultations,total,count);
+                //System.out.println(Integer.toString(consultations)+" "+Double.toString(total)+" "+Integer.toString(count));
         }
         
         public void printEFTReport() {
-                System.out.println("\t\t\tChocoholics Anonymous\n");
+                System.out.println("\t\tChocoholics Anonymous\n");
                 //Print out the providers number of consultations with total fee and provider name
                 for (Map.Entry me : listOfProviders.entrySet()) {
                 	Provider tmp = (Provider)me.getValue();
@@ -168,15 +176,30 @@ public class Datacenter {
                 	for(int i=0;i<tmp.services.size();i++){
                 		sum=sum+tmp.services.get(i).fee;
                 	}
-                    System.out.println(Integer.toString(tmp.number)+" "+Double.toString(sum)+" "+tmp.name);
+                	System.out.printf("%10d  $%9.2f  %13s\n",tmp.number,sum,tmp.name);
+                    //System.out.println(Integer.toString(tmp.number)+" "+Double.toString(sum)+" "+tmp.name);
                   }
         }
         public void printProviderDirectory(){
-        	System.out.println("ServiceName\t\tCode\tFee");
-        	System.out.println("===========\t\t====\t===");
+        	System.out.printf("%s  %s  %s\n","ServiceName             ","Code    ","Fee      ");
+        	System.out.printf("%s  %s  %s\n","-----------             ","----    ","---      ");
         	for (Map.Entry me : providerDirectory.entrySet()) {
             	PDI tmp = (PDI)me.getValue();
-                System.out.println(tmp.serviceName+" "+Integer.toString(tmp.serviceCode)+" "+Double.toString(tmp.fee));
+                System.out.printf("%-22s  %8d    $%9.2f\n",tmp.serviceName,tmp.serviceCode,tmp.fee);
+            	//System.out.println(tmp.serviceName+" "+Integer.toString(tmp.serviceCode)+" "+Double.toString(tmp.fee));
               }
+        }
+        public void runAccountingProceedure(){
+        	System.out.println("Today is Friday, 12-4-2015 12:00:00. Printing weekly report...");
+        	for (Map.Entry me : listOfProviders.entrySet()) {
+            	Provider tmp1 = (Provider)me.getValue();
+            	printProviderReport(tmp1.number);
+              }
+        	for (Map.Entry mi : listOfMembers.entrySet()) {
+            	Member tmp2 = (Member)mi.getValue();
+            	printMemberReport(tmp2.number);
+              }
+        	printManagerReport();
+        	printEFTReport();
         }
 }
