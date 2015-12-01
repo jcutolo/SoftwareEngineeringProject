@@ -1,3 +1,7 @@
+package csc470;
+
+import csc470.PDI;
+import csc470.Provider;
 import java.util.Scanner;
 
 public class Operator {
@@ -68,12 +72,13 @@ public class Operator {
 		String state;
 		int zip;
 		int status;
-		System.out.print("Enter member name: ");
-		name = keyboard.next();
-		System.out.print("Enter member number: ");
+                System.out.print("Enter member number: ");
 		number = keyboard.nextInt();
+                keyboard.nextLine();
+		System.out.print("Enter member name: ");
+		name = keyboard.nextLine();
 		System.out.print("Enter member street address: ");
-		streetAddress = keyboard.next();
+		streetAddress = keyboard.nextLine();
 		System.out.print("Enter member city: ");
 		city = keyboard.next();
 		System.out.print("Enter member state: ");
@@ -95,6 +100,7 @@ public class Operator {
 	public void updateMember(Datacenter d){
 		System.out.print("Enter member number: ");
 		int memberNumber = keyboard.nextInt();
+                keyboard.nextLine();
 		String name;
 		String streetAddress;
 		String city;
@@ -102,9 +108,9 @@ public class Operator {
 		int zip;
 		int status;
 		System.out.print("Enter member name: ");
-		name = keyboard.next();
+		name = keyboard.nextLine();
 		System.out.print("Enter member street address: ");
-		streetAddress = keyboard.next();
+		streetAddress = keyboard.nextLine();
 		System.out.print("Enter member city: ");
 		city = keyboard.next();
 		System.out.print("Enter member state: ");
@@ -123,12 +129,13 @@ public class Operator {
 		String city;
 		String state;
 		int zip;
-		System.out.print("Enter provider name: ");
-		name = keyboard.next();
-		System.out.print("Enter provider number: ");
+                System.out.print("Enter provider number: ");
 		number = keyboard.nextInt();
+                keyboard.nextLine();
+		System.out.print("Enter provider name: ");
+		name = keyboard.nextLine();
 		System.out.print("Enter provider street address: ");
-		streetAddress = keyboard.next();
+		streetAddress = keyboard.nextLine();
 		System.out.print("Enter provider city: ");
 		city = keyboard.next();
 		System.out.print("Enter provider state: ");
@@ -139,17 +146,18 @@ public class Operator {
 		d.addProvider(p);
 	}
 	public void removeProvider(Datacenter d){
-		System.out.print("Enter member number: ");
+		System.out.print("Enter provider number: ");
 		int providerNumber = keyboard.nextInt();
 		d.removeProvider(providerNumber);
 	}
 	public void updateProvider(Datacenter d){
 		System.out.print("Enter provider number: ");
 		int providerNumber = keyboard.nextInt();
+                keyboard.nextLine();
 		System.out.print("Enter provider name: ");
-		String name = keyboard.next();
+		String name = keyboard.nextLine();
 		System.out.print("Enter provider street address: ");
-		String streetAddress = keyboard.next();
+		String streetAddress = keyboard.nextLine();
 		System.out.print("Enter provider city: ");
 		String city = keyboard.next();
 		System.out.print("Enter provider state: ");
@@ -160,10 +168,11 @@ public class Operator {
 		d.updateProvider(p);
 	}
 	public void addService(Datacenter d){
-		System.out.print("Enter service name: ");
-		String serviceName = keyboard.next();
-		System.out.print("Enter service code: ");
+                System.out.print("Enter service code: ");
 		int serviceCode = keyboard.nextInt();
+                keyboard.nextLine();
+		System.out.print("Enter service name: ");
+		String serviceName = keyboard.nextLine();
 		System.out.print("Enter service fee: ");
 		double fee = keyboard.nextDouble();
 		PDI p = new PDI(serviceCode,serviceName,fee);
@@ -172,8 +181,9 @@ public class Operator {
 	public void updateService(Datacenter d){
 		System.out.print("Enter member number: ");
 		int serviceNumber = keyboard.nextInt();
+                keyboard.nextLine();
 		System.out.print("Enter service name: ");
-		String serviceName = keyboard.next();
+		String serviceName = keyboard.nextLine();
 		System.out.print("Enter service fee: ");
 		double fee = keyboard.nextDouble();
 		PDI p = new PDI(serviceNumber,serviceName,fee);
